@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DotnetP5App.Models;
 using DotnetP5App.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotnetP5App.Controllers
@@ -42,25 +43,44 @@ namespace DotnetP5App.Controllers
             }
             return View();
         }
+
+        //public IActionResult Edit(int Id)
+        //{
+        //    var model = _db.FindCarById(Id);
+        //    if (model == null)
+        //    {
+        //        return RedirectToAction("Not Found");
+        //    }
+        //    return View(model);
+        //}
+
         public IActionResult Edit(Car car)
         {
             //var model = _db.FindCarById(Id);
             if (ModelState.IsValid)
             {
                 _db.Update(car);
-                return View("Details", new { id = car.Id });
+                return RedirectToAction("Details", new { id = car.Id });
             }
             return View(car);
-        }
+        }     
 
-        public IActionResult Delete(int Id)
+        [HttpGet]
+        public IActionResult DeleteConfirmation(int id)
         {
-            var model = _db.FindCarById(Id);
+            var model = _db.FindCarById(id);
             if (model == null)
             {
-                return View("NotFound");
+                return View("Not Found");
             }
-            return View(model);
+            return View("Delete", model);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int Id)
+        {
+            _db.DeleteCarById(Id);
+            return RedirectToAction("Index");
         }
     }
 }

@@ -59,7 +59,11 @@ namespace DotnetP5App.Services
 
         public void DeleteCarById(int Id)
         {
-            throw new NotImplementedException();
+            var car = FindCarById(Id);
+            if (car != null)
+            {
+                _cars.Remove(car);
+            }
         }
 
         public IEnumerable<Car> GetAll()

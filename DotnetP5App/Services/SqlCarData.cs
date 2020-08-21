@@ -24,7 +24,12 @@ namespace DotnetP5App.Services
 
         public void DeleteCarById(int Id)
         {
-            throw new NotImplementedException();
+            var car = FindCarById(Id);
+            if (car != null)
+            {
+                _db.Cars.Remove(car);
+                _db.SaveChanges();
+            }
         }
 
         public Car FindCarById(int Id)
@@ -43,6 +48,7 @@ namespace DotnetP5App.Services
         {
             var entry = _db.Entry(car);
             entry.State = EntityState.Modified;
+            _db.SaveChanges();
         }
     }
 }
