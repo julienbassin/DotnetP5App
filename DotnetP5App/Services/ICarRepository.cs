@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DotnetP5App.Services
 {
-    public interface ICarData
+    public interface ICarRepository
     {
         IEnumerable<Car> GetAll();
         Car FindCarById(int Id);

@@ -11,8 +11,8 @@ namespace DotnetP5App.Controllers
 {
     public class HomeController : Controller
     {
-        ICarData db;
-        public HomeController(ICarData db)
+        ICarRepository db;
+        public HomeController(ICarRepository db)
         {
             this.db = db;
         }

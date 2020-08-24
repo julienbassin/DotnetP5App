@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace DotnetP5App.Services
 {
-    public class InMemoryCarData : ICarData
+    public class InMemoryCarData : ICarRepository
     {
         private static List<Car> _cars = new List<Car>();
 

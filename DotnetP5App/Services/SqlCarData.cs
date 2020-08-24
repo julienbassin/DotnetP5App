@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DotnetP5App.Services
 {
-    public class SqlCarData : ICarData
+    public class SqlCarData : ICarRepository
     {
         private readonly CarDBContext _db;
 

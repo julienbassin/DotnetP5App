@@ -44,7 +44,7 @@ namespace DotnetP5App
 
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddRazorPages();
-            services.AddScoped<ICarData, SqlCarData>();
+            services.AddScoped<ICarRepository, SqlCarData>();
             ContainerConfig.RegisterContainer();
             //services.AddDbContext<CarDBContext>(options => options.UseInMemoryDatabase());
             services.AddDbContext<CarDBContext>(options =>

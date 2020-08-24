@@ -12,9 +12,9 @@ namespace DotnetP5App.Controllers
 {
     public class CarsController : Controller
     {
-        public readonly ICarData _db;
+        public readonly ICarRepository _db;
 
-        public CarsController(ICarData db)
+        public CarsController(ICarRepository db)
         {
             _db = db;
         }

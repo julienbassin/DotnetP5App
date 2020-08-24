@@ -17,7 +17,7 @@ namespace DotnetP5App
             var builder = new ContainerBuilder();
             builder.RegisterControllers(typeof(Startup).Assembly);
             builder.RegisterType<SqlCarData>()
-                   .As<ICarData>()
+                   .As<ICarRepository>()
                    .InstancePerRequest();
             builder.RegisterType<CarDBContext>().InstancePerRequest();
             var container = builder.Build();
