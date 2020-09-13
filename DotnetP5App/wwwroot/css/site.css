@@ -35,3 +35,54 @@ body {
         display: none;
     }
 }
+
+.jumbotron {
+    background-color: #343A40;
+    color: orange;
+    margin-bottom: 0;
+}
+
+.avantages {
+    background-color: #F5F5F5;
+    padding: 20px;
+}
+
+.orange {
+    color: orange;
+}
+
+.section-badge {
+    background-color: #E6F2F5;
+}
+
+.widget-top {
+    background-color: white;
+    padding: 10px;
+}
+
+.widget-bottom {
+    background-color: orange;
+    color: white;
+    padding: 10px;
+}
+
+.widget {
+    border: 1px solid orange;
+    margin: 15px;
+}
+
+.h4title {
+    padding: 30px;
+}
+
+.background-trainings {
+    background-color: #F5F5F5;
+    padding: 20px;
+    margin: 10px;
+}
+
+.review-block {
+    background-color: #F5F;
+    padding: 15px;
+    margin: 2px;
+}

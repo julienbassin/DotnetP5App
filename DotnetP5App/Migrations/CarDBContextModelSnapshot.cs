@@ -30,6 +30,7 @@ namespace DotnetP5App.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Make")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Model")
@@ -43,17 +44,93 @@ namespace DotnetP5App.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Trim")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Vin")
                         .HasColumnType("int");
 
                     b.Property<string>("Year")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Cars");
+                });
+
+            modelBuilder.Entity("DotnetP5App.Models.Invoice", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CustomerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Profit")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("SaleDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("TotalCost")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarId")
+                        .IsUnique();
+
+                    b.ToTable("Invoices");
+                });
+
+            modelBuilder.Entity("DotnetP5App.Models.RepairCar", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("RepairCost")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("RepairedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarId");
+
+                    b.ToTable("RepairCars");
+                });
+
+            modelBuilder.Entity("DotnetP5App.Models.Invoice", b =>
+                {
+                    b.HasOne("DotnetP5App.Models.Car", "Car")
+                        .WithOne("Invoice")
+                        .HasForeignKey("DotnetP5App.Models.Invoice", "CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("DotnetP5App.Models.RepairCar", b =>
+                {
+                    b.HasOne("DotnetP5App.Models.Car", "Car")
+                        .WithMany("Repairs")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

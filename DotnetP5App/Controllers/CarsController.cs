@@ -44,16 +44,6 @@ namespace DotnetP5App.Controllers
             return View();
         }
 
-        //public IActionResult Edit(int Id)
-        //{
-        //    var model = _db.FindCarById(Id);
-        //    if (model == null)
-        //    {
-        //        return RedirectToAction("Not Found");
-        //    }
-        //    return View(model);
-        //}
-
         public IActionResult Edit(Car car)
         {
             //var model = _db.FindCarById(Id);

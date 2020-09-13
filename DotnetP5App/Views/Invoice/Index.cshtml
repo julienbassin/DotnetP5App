@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Invoice>
+@{
+    ViewData["Title"] = "Invoice";
+}
+
+<h2>Invoice </h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+
+<!--
+    Display the results for user view
+    User | Model | TRIM | YEAR | Status | TOTALCOST |
+
+    Display the results from admin view
+    Admin | Model | TRIM | ...
+
+-->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car.Vin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SaleDate)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CarId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Car.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Car.Vin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SaleDate)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>*@
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.LotDate)
+                </td>*@
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "DeleteConfirmation", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,43 @@
+﻿@model DotnetP5App.ModelsViewModels.RepairCarViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>RepairCar description</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Description, new { @class = "control-label" })
+                @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Description, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Amount, new { @class = "control-label" })
+                @Html.TextBoxFor(x => x.Amount, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Amount, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.dateTime, new { @class = "control-label" })
+                @Html.TextBoxFor(x => x.dateTime, new { @type="date",  @class = "form-control datepicker", @value=Model.dateTime.ToString("yyyy-MM-dd") })
+                @Html.ValidationMessageFor(x => x.dateTime, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label for="sel1">Select list (select one):</label>
+                @Html.DropDownListFor(x => x.CarId, Model.Cars)
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

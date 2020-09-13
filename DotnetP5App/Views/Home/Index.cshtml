@@ -6,8 +6,26 @@
     <div class="jumbotron">
         <h1>ASP.Net</h1>
         <div>
-            There are X number of cars in Database.
+            This is a rent car app!
         </div>
+    </div>
+
+    <div class="row">
+        @foreach (var car in Model)
+        {
+
+            <div class="col-md-6 col-lg-4 background-trainings">
+                <a asp-controller="Cars"
+                   asp-action="Details"
+                   asp-route-Id="@car.Id">@car.Model</a>
+                @if (car.Id > 0)
+                {
+                    <div>@car.Model <span class="fa fa-star orange"></span><span class="fa fa-star orange"></span><span class="fa fa-star orange"></span><span class="fa fa-star orange"></span><span class="fa fa-star-half orange"></span></div>
+
+                }
+            </div>
+            <br />
+        }
     </div>
 
 

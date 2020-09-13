@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace DotnetP5App.Services
 {
-    public class SqlCarData : ICarRepository
+    public class CarRepository : ICarRepository
     {
         private readonly CarDBContext _db;
-
-        public SqlCarData(CarDBContext db)
+        public CarRepository(CarDBContext db)
         {
             _db = db;
         }
         public void AddCar(Car car)
         {
+            _db.Cars.Include("Repairs").FirstOrDefault();
             _db.Add(car);
             _db.SaveChanges();
         }
@@ -30,6 +30,11 @@ namespace DotnetP5App.Services
                 _db.Cars.Remove(car);
                 _db.SaveChanges();
             }
+        }
+
+        public List<Car> GetRandomTrainings(int Length)
+        {
+            return _db.Cars.OrderBy(qu => Guid.NewGuid()).Take(Length).ToList();
         }
 
         public Car FindCarById(int Id)

@@ -161,7 +161,6 @@ C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\Dotnet
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Cars\Edit.cshtml.g.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Cars\Index.cshtml.g.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Cars\NotFound.cshtml.g.cs
-C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Greeting\Index.cshtml.g.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Home\About.cshtml.g.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Home\Contact.cshtml.g.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
@@ -186,3 +185,10 @@ C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\Dotnet
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.csprojAssemblyReference.cache
+C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Repair\Create.cshtml.g.cs
+C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Repair\Index.cshtml.g.cs
+C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Invoice\Index.cshtml.g.cs
+C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Invoice\Create.cshtml.g.cs
+C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Invoice\Details.cshtml.g.cs
+C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Repair\Details.cshtml.g.cs
