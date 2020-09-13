@@ -29,12 +29,9 @@ namespace DotnetP5App.Controllers
             var vm = new RepairCarViewModel();
             foreach (var car in cars)
             {
-                var item = new SelectListItem() { Value = car.Id.ToString(), Text = car.Make };
-                
+                var item = new SelectListItem() { Value = car.Id.ToString(), Text = car.Make };                
                 vm.Cars.Add(item);
-
             }
-
             return View(vm);
         }
 
@@ -48,8 +45,8 @@ namespace DotnetP5App.Controllers
                 {
                     CarId = repairCarViewModel.CarId,
                     RepairCost = repairCarViewModel.Amount,
-                    Description = "test",
-                    RepairedDate = DateTime.Now
+                    Description = repairCarViewModel.Description,
+                    RepairedDate = repairCarViewModel.dateTime
 
                 };
                 _repairCarRepository.AddRepairCar(repairCar);
@@ -60,7 +57,6 @@ namespace DotnetP5App.Controllers
             foreach (var car in cars)
             {
                 var item = new SelectListItem() { Value = car.Id.ToString(), Text = car.Make };
-
                 vm.Cars.Add(item);
             }
             return View(vm);
