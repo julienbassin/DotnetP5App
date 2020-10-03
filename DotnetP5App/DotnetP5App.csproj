@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20201002211743_Add File Model and status Model.cs" />
+    <Compile Remove="Migrations\20201002211743_Add File Model and status Model.Designer.cs" />
+    <Compile Remove="Migrations\20201002212019_Add File Model and status Model.cs" />
+    <Compile Remove="Migrations\20201002212019_Add File Model and status Model.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac.Mvc5" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.App" />

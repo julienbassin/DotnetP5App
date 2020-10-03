@@ -15,7 +15,10 @@ namespace DotnetP5App.Services
         }
         public DbSet<Car> Cars { get; set; }
         public DbSet<RepairCar> RepairCars { get; set; }
-        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<Inventory> Inventories { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<FileModel> FileModel { get; set; }
+        public DbSet<Status> Status { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

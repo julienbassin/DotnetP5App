@@ -1,31 +1,38 @@
-﻿@model  IEnumerable<DotnetP5App.Models.Car>
+﻿@model List<DotnetP5App.ViewModels.DetailCarViewModel>
 @{
     ViewData["Title"] = "Home Page";
 }
 
-    <div class="jumbotron">
-        <h1>ASP.Net</h1>
-        <div>
-            This is a rent car app!
-        </div>
+<div class="jumbotron text-center">
+    <div class="container">
+        <h1>Get your car! </h1>
+        <p class="lead text-muted">Shop New & Used Cars For Sale.</p>
+        <p>
+            <a asp-action="Contact" class="btn btn-primary my-2">Contact Us!</a>
+        </p>
     </div>
+</div>
 
+
+
+<div class="container" style="margin-top: 30px">
     <div class="row">
-        @foreach (var car in Model)
+        @foreach (var CarVMDetail in Model)
         {
 
-            <div class="col-md-6 col-lg-4 background-trainings">
-                <a asp-controller="Cars"
-                   asp-action="Details"
-                   asp-route-Id="@car.Id">@car.Model</a>
-                @if (car.Id > 0)
-                {
-                    <div>@car.Model <span class="fa fa-star orange"></span><span class="fa fa-star orange"></span><span class="fa fa-star orange"></span><span class="fa fa-star orange"></span><span class="fa fa-star-half orange"></span></div>
-
-                }
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img class="card-img-top img-fluid" src="~/images/@CarVMDetail.Cars.ProfilePicture" alt="Card image cap">
+                    <div class="caption">
+                        <h3> @CarVMDetail.Cars.Make @CarVMDetail.Cars.Model  @CarVMDetail.Cars.Trim</h3>
+                        <p>@CarVMDetail.Cars.Description</p>
+                        <p><a asp-controller="Cars" asp-action="Details" asp-route-id="@CarVMDetail.Cars.Id" class="btn btn-primary" role="button">Details</a></p>
+                    </div>
+                </div>
             </div>
-            <br />
+
         }
     </div>
+</div>
 
 

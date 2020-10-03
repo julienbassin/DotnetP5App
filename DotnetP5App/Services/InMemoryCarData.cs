@@ -70,5 +70,10 @@ namespace DotnetP5App.Services
         {
             return _cars.OrderBy(c => c.Model);
         }
+
+        public List<Car> GetRandomTrainings(int Length)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

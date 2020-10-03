@@ -26,6 +26,9 @@ namespace DotnetP5App.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("LotDate")
                         .HasColumnType("datetime2");
 
@@ -35,6 +38,9 @@ namespace DotnetP5App.Migrations
 
                     b.Property<string>("Model")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProfilePicture")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("PurchaseDate")
@@ -59,7 +65,42 @@ namespace DotnetP5App.Migrations
                     b.ToTable("Cars");
                 });
 
-            modelBuilder.Entity("DotnetP5App.Models.Invoice", b =>
+            modelBuilder.Entity("DotnetP5App.Models.FileModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Extension")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UploadedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarId");
+
+                    b.ToTable("FileModel");
+                });
+
+            modelBuilder.Entity("DotnetP5App.Models.Inventory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -86,7 +127,7 @@ namespace DotnetP5App.Migrations
                     b.HasIndex("CarId")
                         .IsUnique();
 
-                    b.ToTable("Invoices");
+                    b.ToTable("Inventories");
                 });
 
             modelBuilder.Entity("DotnetP5App.Models.RepairCar", b =>
@@ -115,11 +156,68 @@ namespace DotnetP5App.Migrations
                     b.ToTable("RepairCars");
                 });
 
-            modelBuilder.Entity("DotnetP5App.Models.Invoice", b =>
+            modelBuilder.Entity("DotnetP5App.Models.Status", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarId");
+
+                    b.ToTable("Status");
+                });
+
+            modelBuilder.Entity("DotnetP5App.Services.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Comments")
+                        .HasColumnType("nvarchar(5)")
+                        .HasMaxLength(5);
+
+                    b.Property<double>("Rating")
+                        .HasColumnType("float");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarId");
+
+                    b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("DotnetP5App.Models.FileModel", b =>
+                {
+                    b.HasOne("DotnetP5App.Models.Car", "Car")
+                        .WithMany()
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("DotnetP5App.Models.Inventory", b =>
                 {
                     b.HasOne("DotnetP5App.Models.Car", "Car")
                         .WithOne("Invoice")
-                        .HasForeignKey("DotnetP5App.Models.Invoice", "CarId")
+                        .HasForeignKey("DotnetP5App.Models.Inventory", "CarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -128,6 +226,24 @@ namespace DotnetP5App.Migrations
                 {
                     b.HasOne("DotnetP5App.Models.Car", "Car")
                         .WithMany("Repairs")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("DotnetP5App.Models.Status", b =>
+                {
+                    b.HasOne("DotnetP5App.Models.Car", "Car")
+                        .WithMany()
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("DotnetP5App.Services.Review", b =>
+                {
+                    b.HasOne("DotnetP5App.Models.Car", "Cars")
+                        .WithMany()
                         .HasForeignKey("CarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

@@ -47,7 +47,7 @@ namespace DotnetP5App
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<ICarRepository, CarRepository>();
             services.AddTransient<IRepairCarRepository, RepairCarRepository>();
-            services.AddTransient<IInvoiceRepository, InvoiceRepository>();
+            services.AddTransient<IInventoryRepository, InventoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

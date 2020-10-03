@@ -12,5 +12,6 @@ namespace DotnetP5App.Services
         void Update(Car car);
         void DeleteCarById(int Id);
         void AddCar(Car car);
+        List<Car> GetRandomTrainings(int Length);
     }
 }

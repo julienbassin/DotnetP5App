@@ -38,7 +38,6 @@ namespace DotnetP5App.Controllers
         [HttpPost]
         public IActionResult Create(RepairCarViewModel repairCarViewModel)
         {
-
             if (ModelState.IsValid)
             {
                 var repairCar = new RepairCar()
@@ -47,7 +46,6 @@ namespace DotnetP5App.Controllers
                     RepairCost = repairCarViewModel.Amount,
                     Description = repairCarViewModel.Description,
                     RepairedDate = repairCarViewModel.dateTime
-
                 };
                 _repairCarRepository.AddRepairCar(repairCar);
                 return RedirectToAction("Index");
@@ -64,7 +62,7 @@ namespace DotnetP5App.Controllers
 
         public IActionResult Details(int Id)
         {
-            var model = _repairCarRepository.FindRepairCarById(Id);
+            var model = _repairCarRepository.FindRepairCarById(Id);           
             if (model == null)
             {
                 return View("NotFound");
