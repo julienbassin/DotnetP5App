@@ -10,9 +10,8 @@ namespace DotnetP5App.ViewModels
 {
     public class InventoryViewModel
     {
-        public int InvoiceId { get; set; }
-        public int CarId { get; set; }
-        public string Description { get; set; }        
+        public int InventoryId { get; set; }
+        public int CarId { get; set; }      
         [Required]
         public double Profit { get; set; }
         public string CustomerName { get; set; }
@@ -22,6 +21,7 @@ namespace DotnetP5App.ViewModels
 
         [Required]
         public DateTime dateTime { get; set; }
+        public string PurchasePrice { get; set; }
         public List<SelectListItem> Cars { get; set; } = new List<SelectListItem>();
 
         public string RepairCost { get; set; }

@@ -37,7 +37,17 @@ namespace DotnetP5App.Services
 
         public RepairCar FindRepairCarById(int Id)
         {
-            return _db.RepairCars.Include(c => c.Car).FirstOrDefault(c => c.Id == Id);
+            return _db.RepairCars.FirstOrDefault(c => c.Id == Id);
+        }
+
+        public void DeleteRepairCarById(int Id)
+        {
+            var currentRepair = FindRepairCarById(Id);
+            if (currentRepair != null)
+            {
+                _db.RepairCars.Remove(currentRepair);
+                _db.SaveChanges();
+            }
         }
     }
 }

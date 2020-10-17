@@ -31,16 +31,21 @@ namespace DotnetP5App.Models
         [Required(ErrorMessage = "Please enter purchase date")]
         public DateTime PurchaseDate { get; set; }
 
-        //[Required(ErrorMessage = "Please enter a description")]
+        [Required(ErrorMessage = "Please enter a description")]
         public string Description { get; set; }
 
-        [Required(ErrorMessage = "Please enter lot date")]
+        [Required(ErrorMessage = "Please enter a price for the demo")]
+        public int SellingPrice { get; set; }
         public DateTime LotDate { get; set; }
+        public DateTime SaleDate { get; set; }
 
-        //[Required(ErrorMessage = "Please choose profile image")]
-        public string ProfilePicture { get; set; }
+        [Required(ErrorMessage = "Please choose profile image")]
+        public string ProfilePicture { get; set; }        
+        
+        public string Status { get; set; }
+        //public string repairCost { get; set; }
+
         public List<RepairCar> Repairs { get; set; }
-        public Inventory Invoice { get; set; }
 
     }
 }

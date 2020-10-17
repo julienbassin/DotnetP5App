@@ -10,6 +10,7 @@ using DotnetP5App.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DotnetP5App.Controllers
 {
@@ -17,11 +18,15 @@ namespace DotnetP5App.Controllers
     {
         public readonly ICarRepository _db;
         private readonly IWebHostEnvironment _webHostEnvironment;
+        public readonly IRepairCarRepository _repairCarRepository;
 
-        public CarsController(ICarRepository db, IWebHostEnvironment webHostEnvironment)
+        public CarsController(ICarRepository db, 
+                              IWebHostEnvironment webHostEnvironment,
+                              IRepairCarRepository repairCarRepository)
         {
             _db = db;
             _webHostEnvironment = webHostEnvironment;
+            _repairCarRepository = repairCarRepository;
         }
         public IActionResult Index()
         {
@@ -41,8 +46,20 @@ namespace DotnetP5App.Controllers
 
         [HttpGet]
         public IActionResult Create()
-        {            
-            return View();
+        {
+            var repairCars = _repairCarRepository.GetAll();
+            var vmRepairCars = new CarViewModel();
+            foreach (var repairCar in repairCars)
+            {
+                vmRepairCars.ListRepairCar.Add(
+                    new SelectListItem
+                    {
+                        Text = repairCar.Description,
+                        Value = repairCar.RepairCost.ToString()
+                    });
+            }
+
+            return View(vmRepairCars);
         }
 
         [HttpPost]
@@ -63,12 +80,15 @@ namespace DotnetP5App.Controllers
                     PurchasePrice = viewModel.PurchasePrice,
                     Vin = viewModel.Vin,
                     LotDate = viewModel.LotDate,
-                    ProfilePicture = uniqueFileName
-                };
+                    ProfilePicture = uniqueFileName,
+                    SaleDate = viewModel.SaleDate,
+                    SellingPrice = viewModel.SellingPrice,
+                    Status = viewModel.Status
+                 };
                 _db.AddCar(currentCar);
                 
             }
-            return View();
+            return RedirectToAction("Index");
         }
 
         private string UploadedFile(CarViewModel model)
@@ -89,14 +109,28 @@ namespace DotnetP5App.Controllers
         }
 
         // try to add httpget and httppost for edit 
-        public IActionResult Edit(Car car)
+        public IActionResult Edit(CarViewModel carViewModel)
         {
+            string uniqueFileName = UploadedFile(carViewModel);
+
             if (ModelState.IsValid)
             {
-                _db.Update(car);
-                return RedirectToAction("Details", new { id = car.Id });
+                Car currentCar = new Car
+                {
+                    Model = carViewModel.Model,
+                    Description = carViewModel.Description,
+                    Make = carViewModel.Make,
+                    Trim = carViewModel.Trim,
+                    Year = carViewModel.Year,
+                    PurchaseDate = carViewModel.PurchaseDate,
+                    PurchasePrice = carViewModel.PurchasePrice,
+                    Vin = carViewModel.Vin,
+                    LotDate = carViewModel.LotDate,
+                    ProfilePicture = uniqueFileName
+                };
+                _db.Update(currentCar);
             }
-            return View(car);
+            return View();
         }     
 
         [HttpGet]

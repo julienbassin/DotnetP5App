@@ -17,7 +17,6 @@ namespace DotnetP5App.Services
         }
         public void AddCar(Car car)
         {
-            _db.Cars.Include("Repairs").FirstOrDefault();
             _db.Add(car);
             _db.SaveChanges();
         }

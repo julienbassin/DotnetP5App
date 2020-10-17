@@ -30,6 +30,11 @@ namespace DotnetP5App
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            //var emailConfig = Configuration
+            //        .GetSection("EmailConfiguration")
+            //        .Get<EmailConfiguration>();
+            //services.AddSingleton(emailConfig);
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -48,6 +53,7 @@ namespace DotnetP5App
             services.AddTransient<ICarRepository, CarRepository>();
             services.AddTransient<IRepairCarRepository, RepairCarRepository>();
             services.AddTransient<IInventoryRepository, InventoryRepository>();
+            //services.AddScoped<IEmailSender, EmailSender>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

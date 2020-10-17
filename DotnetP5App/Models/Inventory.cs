@@ -11,12 +11,11 @@ namespace DotnetP5App.Models
         public int Id { get; set; }
         public decimal Profit { get; set; }
         public decimal TotalCost { get; set; }
-
         
         public DateTime SaleDate { get; set; }
         public string CustomerName { get; set; }
-        public Car Car { get; set; }
-        public int CarId { get; set; }
+        
+        
 
     }
 }

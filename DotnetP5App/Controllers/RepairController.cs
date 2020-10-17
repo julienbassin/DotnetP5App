@@ -10,11 +10,9 @@ namespace DotnetP5App.Controllers
     public class RepairController : Controller
     {
         IRepairCarRepository _repairCarRepository;
-        ICarRepository _carRepository;
-        public RepairController(IRepairCarRepository repairCarRepository, ICarRepository carRepository)
+        public RepairController(IRepairCarRepository repairCarRepository)
         {
             _repairCarRepository = repairCarRepository;
-            _carRepository = carRepository;
     }
         public IActionResult Index()
         {
@@ -24,14 +22,8 @@ namespace DotnetP5App.Controllers
 
         [HttpGet]
         public IActionResult Create()
-        {
-            var cars = _carRepository.GetAll();
+        {            
             var vm = new RepairCarViewModel();
-            foreach (var car in cars)
-            {
-                var item = new SelectListItem() { Value = car.Id.ToString(), Text = car.Make };                
-                vm.Cars.Add(item);
-            }
             return View(vm);
         }
 
@@ -42,21 +34,13 @@ namespace DotnetP5App.Controllers
             {
                 var repairCar = new RepairCar()
                 {
-                    CarId = repairCarViewModel.CarId,
                     RepairCost = repairCarViewModel.Amount,
                     Description = repairCarViewModel.Description,
-                    RepairedDate = repairCarViewModel.dateTime
                 };
                 _repairCarRepository.AddRepairCar(repairCar);
                 return RedirectToAction("Index");
             }
-            var cars = _carRepository.GetAll();
             var vm = new RepairCarViewModel();
-            foreach (var car in cars)
-            {
-                var item = new SelectListItem() { Value = car.Id.ToString(), Text = car.Make };
-                vm.Cars.Add(item);
-            }
             return View(vm);
         }
 
@@ -78,18 +62,14 @@ namespace DotnetP5App.Controllers
             {
                 return View("NotFound");
             }
-            return View(model);
+            return View("Delete", model);
         }
 
         [HttpPost]
         public IActionResult Delete(int Id)
         {
-            var model = _repairCarRepository.FindRepairCarById(Id);
-            if (model == null)
-            {
-                return View("NotFound");
-            }
-            return View(model);
+            _repairCarRepository.DeleteRepairCarById(Id);
+            return RedirectToAction("Index");
         }
     }
 }

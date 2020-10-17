@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using DotnetP5App.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DotnetP5App.ViewModels
 {
@@ -39,5 +41,14 @@ namespace DotnetP5App.ViewModels
         [Required(ErrorMessage = "Please add an image")]
         [Display(Name = "Profile Picture")]
         public IFormFile ProfileImage { get; set; }
+        
+        [Display(Name = "Selling Price")]
+        public int SellingPrice { get; set; }
+
+        [Display(Name = "Sale Date")]
+        public DateTime SaleDate { get; set; }
+        public string repairCost { get; set; }
+        public string Status { get; set; }
+        public List<SelectListItem> ListRepairCar { get; set; } = new List<SelectListItem>();
     }
 }
