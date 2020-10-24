@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using DotnetP5App.Models;
 using DotnetP5App.ModelsViewModels;
 using DotnetP5App.Services;
@@ -16,8 +17,17 @@ namespace DotnetP5App.Controllers
     }
         public IActionResult Index()
         {
-            var model = _repairCarRepository.GetAll();
-            return View(model);
+            var repairs = _repairCarRepository.GetAll();
+            //var vm = new List<RepairCarViewModel>();
+            //foreach (var repair in repairs)
+            //{
+            //    vm.Add(new RepairCarViewModel
+            //    {
+            //        Amount = repair.RepairCost,
+            //        Description = repair.Description
+            //    });
+            //}
+            return View(repairs);
         }
 
         [HttpGet]
@@ -43,6 +53,30 @@ namespace DotnetP5App.Controllers
             var vm = new RepairCarViewModel();
             return View(vm);
         }
+
+        [HttpGet]
+        public IActionResult Edit(int Id)
+        {
+            var repairs = _repairCarRepository.FindRepairCarById(Id);
+            var vm = new RepairCarViewModel();
+            vm.Amount = repairs.RepairCost;
+            vm.Description = repairs.Description;
+            vm.Id = repairs.Id;
+            return View(vm);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(RepairCarViewModel repairCarViewModel)
+        {
+
+            if (ModelState.IsValid)
+            {
+               
+                _repairCarRepository.UpdateRepairCar(repairCarViewModel);
+            }
+            return RedirectToAction("Index");
+        }
+
 
         public IActionResult Details(int Id)
         {

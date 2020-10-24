@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DotnetP5App.Models;
 using DotnetP5App.Services;
 using DotnetP5App.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DotnetP5App.Controllers
 {
+    
     public class CarsController : Controller
     {
         public readonly ICarRepository _db;
@@ -28,6 +30,7 @@ namespace DotnetP5App.Controllers
             _webHostEnvironment = webHostEnvironment;
             _repairCarRepository = repairCarRepository;
         }
+        [Authorize]
         public IActionResult Index()
         {
             var model = _db.GetAll();
@@ -45,6 +48,7 @@ namespace DotnetP5App.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Create()
         {
             var repairCars = _repairCarRepository.GetAll();
@@ -63,6 +67,7 @@ namespace DotnetP5App.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Create(CarViewModel viewModel)
         {
             if (ModelState.IsValid)
@@ -109,6 +114,7 @@ namespace DotnetP5App.Controllers
         }
 
         // try to add httpget and httppost for edit 
+        
         public IActionResult Edit(CarViewModel carViewModel)
         {
             string uniqueFileName = UploadedFile(carViewModel);

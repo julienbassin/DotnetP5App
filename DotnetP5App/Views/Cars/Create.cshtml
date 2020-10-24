@@ -5,7 +5,7 @@
 }
 
 
-<div class="col-md-10 mx-auto py-4">
+<div class="col-md-10 mx-auto py-4" style="margin-top:100px">
     <form enctype="multipart/form-data" asp-action="Create">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="row">
@@ -51,7 +51,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label asp-for="PurchasePrice" class="control-label"></label>
-                    <input asp-for="PurchasePrice" class="form-control" />
+                    <input id="PurchasePrice" asp-for="PurchasePrice" class="form-control row_total" />
                     <span asp-validation-for="PurchasePrice" class="text-danger"></span>
                 </div>
             </div>
@@ -105,7 +105,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label asp-for="SellingPrice" class="control-label"></label>
-                    <input asp-for="SellingPrice" class="form-control" />
+                    <input id="subtotal" asp-for="SellingPrice" class="form-control"  readonly/>
                     <span asp-validation-for="SellingPrice" class="text-danger"></span>
                 </div>
             </div>
@@ -120,13 +120,10 @@
                 <div class="form-group">
                     <div class="form-group">
                         <label for="RepairCar">To Select multiple choice, hold on ctrl+click</label>
-                        <select multiple class="form-control" id="exampleFormControlSelect2">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
+                        @Html.DropDownList("RepairCarList", Model.ListRepairCar, new { @id="MultipleSelect", @class = "form-control", multiple = "multiple"})
+                    </div>
+                    <div class="form-group">
+                        <input class="row_total form-control" id="repaircost" type="text" name="repaircost" readonly>
                     </div>
                 </div>
             </div>
@@ -146,5 +143,30 @@
             var fileName = $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
         });
+
+        $("#MultipleSelect").change(function () {
+            var sum = 0;
+            $(this).find('option:selected').each(function () {
+                sum += parseFloat($(this).val());
+            });
+            $("#repaircost").val(sum);
+            calculateSum();
+        })
+
+        function calculateSum() {
+            var sum = 0;
+            $(".row_total").each(function () {
+                if (!isNaN(this.value) && this.value.length != 0) {
+                    sum += parseFloat(this.value);
+                }
+            });
+            $("#subtotal").val(sum);
+
+        } 
+
+        $("#PurchasePrice").change(function () {
+            calculateSum();
+        });
+
     </script>
 }

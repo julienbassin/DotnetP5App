@@ -25,8 +25,7 @@ namespace DotnetP5App.Controllers
             {
                 vm.Add(new DetailCarViewModel
                 {
-                    Cars = cars,
-                    //AverageRating = cars.Reviews.Select(tr => tr.Rating).DefaultIfEmpty(0).Average()
+                    Cars = cars
                 });
             }
             return View(vm);
@@ -40,10 +39,6 @@ namespace DotnetP5App.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -10,13 +10,11 @@ namespace DotnetP5App.ModelsViewModels
 {
     public class RepairCarViewModel
     {
-        [Required]
+        public int Id { get; set; }
         public int CarId { get; set; }
         public string Description { get; set; }
         [Required]
-        public int Amount { get; set; }
-        [Required]
-        public DateTime dateTime { get; set; }
+        public decimal Amount { get; set; }
         public List<SelectListItem> Cars { get; set; } = new List<SelectListItem>();
     }
 }

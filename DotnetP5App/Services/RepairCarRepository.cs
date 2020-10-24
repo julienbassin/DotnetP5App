@@ -1,4 +1,5 @@
 ﻿using DotnetP5App.Models;
+using DotnetP5App.ModelsViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,13 @@ namespace DotnetP5App.Services
             _db.SaveChanges();
         }
 
+        public void UpdateRepairCar(RepairCarViewModel repairCar)
+        {
+            var model = _db.RepairCars.FirstOrDefault(rc => rc.Id == repairCar.Id);
+            model.RepairCost = repairCar.Amount;
+            model.Description = repairCar.Description;
+            _db.SaveChanges();
+        }
         public IEnumerable<RepairCar> GetAll()
         {
             return from rc in _db.RepairCars

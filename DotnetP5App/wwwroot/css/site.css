@@ -6,13 +6,14 @@
     padding-top: var(--jumbotron-padding-y);
     padding-bottom: var(--jumbotron-padding-y);
     margin-bottom: 0;
-    background-color: #fff;
+    background-color:#FFF;
 }
 
 @media (min-width: 768px) {
     .jumbotron {
         padding-top: calc(var(--jumbotron-padding-y) * 2);
         padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+        
     }
 }
 
@@ -43,12 +44,83 @@ footer p {
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
+.btn{
+    padding: 10px 40px;
+    font-weight: bold;
+    border-radius: 3px;
+}
 .btn-primary {
     background-color: rgb(255, 146, 14);
+    background-image: -webkit-linear-gradient(top,#FF9B22 0%, FF8C00 100% );
+    border: 0 none;
     color: #FFEFD7;
+    text-shadow: 0 2px 1Px rgba(0,0,0,.2);
 }
 
 .top-space {
-    background-color: rgb(247, 245, 244);
+    margin-top: 40px;
 }
 
+.highlight {
+    margin-top: 20px;
+}
+
+.h-caption {
+    text-align: center;
+}
+
+.h-caption i {
+    display: block;
+    font-size: 54px;
+    color: #382526;
+    margin-bottom: 36px;
+}
+
+.h-caption h4 {
+    color: #382526;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.h-body {
+}
+
+.jb {
+    background-color: #f7f5f4;
+}
+
+.jb h4{
+    font-size: 18px;
+    line-height: 1.3em;
+    margin:10px;
+}
+
+.footer1 a{
+    color: #ccc;
+}
+.footer2 a{
+    color: #ccc;
+}
+
+a{
+    text-decoration: none;
+}
+
+.follow-me-icons a {
+    padding-right: 10px;
+}
+
+.card-title{
+    margin: 30px;
+}
+
+.breadcrumb {
+    margin-top: 115px;
+    margin-bottom: 20px;
+    background-color: #FFF;
+}
+
+.breadcrumb li a {
+    text-decoration: none;
+}

@@ -50,5 +50,6 @@ namespace DotnetP5App.ViewModels
         public string repairCost { get; set; }
         public string Status { get; set; }
         public List<SelectListItem> ListRepairCar { get; set; } = new List<SelectListItem>();
+        public List<string> RepairCarList { get; set; }
     }
 }

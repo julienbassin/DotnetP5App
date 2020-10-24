@@ -1,4 +1,5 @@
 ﻿using DotnetP5App.Models;
+using DotnetP5App.ModelsViewModels;
 using System.Collections.Generic;
 
 namespace DotnetP5App.Services
@@ -10,5 +11,6 @@ namespace DotnetP5App.Services
         void Update(RepairCar repairCar);
         RepairCar FindRepairCarById(int Id);
         void DeleteRepairCarById(int Id);
+        void UpdateRepairCar(RepairCarViewModel repairCar);
     }
 }
