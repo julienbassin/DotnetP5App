@@ -8,7 +8,6 @@ namespace DotnetP5App.Services
     {
         void AddRepairCar(RepairCar repairCar);
         IEnumerable<RepairCar> GetAll();
-        void Update(RepairCar repairCar);
         RepairCar FindRepairCarById(int Id);
         void DeleteRepairCarById(int Id);
         void UpdateRepairCar(RepairCarViewModel repairCar);

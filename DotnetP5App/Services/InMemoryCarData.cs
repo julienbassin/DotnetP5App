@@ -36,14 +36,14 @@ namespace DotnetP5App.Services
             car.Id = _cars.Max(c => c.Id) + 1;
         }
 
-        public Car FindCarById(int Id)
+        public Car GetCarById(int Id)
         {
             return _cars.FirstOrDefault(c => c.Id == Id);
         }
 
         public void Update(Car car)
         {
-            var updatedCar = FindCarById(car.Id);
+            var updatedCar = GetCarById(car.Id);
             if( updatedCar != null)
             {
                 updatedCar.Model = car.Model;
@@ -59,7 +59,7 @@ namespace DotnetP5App.Services
 
         public void DeleteCarById(int Id)
         {
-            var car = FindCarById(Id);
+            var car = GetCarById(Id);
             if (car != null)
             {
                 _cars.Remove(car);

@@ -5,33 +5,41 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
 
-<h4>RepairCar</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="@Model.Id" value="@Model.Id" />
-            <div class="form-group">
-                <label asp-for="@Model.Amount" class="control-label"></label>
-                <input asp-for="@Model.Amount" class="form-control" value="@Model.Amount"/>
-                <span asp-validation-for="@Model.Amount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.Description" class="control-label"></label>
-                <input asp-for="@Model.Description" class="form-control" value="@Model.Description"/>
-                <span asp-validation-for="@Model.Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="container" style="margin-top:177px">
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a asp-controller="Cars" asp-action="Index">Back to list &nbsp; </a></li>
+                <li class="active" style="color:#999"> / Edit</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                <input type="hidden" asp-for="@Model.Id" value="@Model.Id" />
+                <div class="form-group">
+                    <label asp-for="@Model.Amount" class="control-label"></label>
+                    <input asp-for="@Model.Amount" class="form-control" value="@Model.Amount" />
+                    <span asp-validation-for="@Model.Amount" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Description" class="control-label"></label>
+                    <input asp-for="@Model.Description" class="form-control" value="@Model.Description" />
+                    <span asp-validation-for="@Model.Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 

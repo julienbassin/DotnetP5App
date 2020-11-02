@@ -42,7 +42,6 @@ namespace DotnetP5App.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProfilePicture")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("PurchaseDate")
@@ -50,6 +49,9 @@ namespace DotnetP5App.Migrations
 
                     b.Property<int>("PurchasePrice")
                         .HasColumnType("int");
+
+                    b.Property<string>("RepairCost")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("SaleDate")
                         .HasColumnType("datetime2");
@@ -64,8 +66,9 @@ namespace DotnetP5App.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Vin")
-                        .HasColumnType("int");
+                    b.Property<string>("Vin")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Year")
                         .IsRequired()

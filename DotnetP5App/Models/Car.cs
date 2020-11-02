@@ -23,9 +23,11 @@ namespace DotnetP5App.Models
         public string Year { get; set; }
 
         [Required(ErrorMessage = "Please enter Vehicule ID")]
-        public int Vin { get; set; }
+        [RegularExpression("[A-HJ-NPR-Z0-9]{13}[0-9]{4}", ErrorMessage = "Invalid Vehicle Identification Number Format.")]
+        public string Vin { get; set; }
 
         [Required(ErrorMessage = "Please enter purchase price")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:c}")]
         public int PurchasePrice { get; set; }
 
         [Required(ErrorMessage = "Please enter purchase date")]
@@ -35,16 +37,17 @@ namespace DotnetP5App.Models
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Please enter a price for the demo")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:c}")]
         public int SellingPrice { get; set; }
+
         public DateTime LotDate { get; set; }
+
         public DateTime SaleDate { get; set; }
-
-        [Required(ErrorMessage = "Please choose profile image")]
-        public string ProfilePicture { get; set; }        
-        
+        public string ProfilePicture { get; set; }       
         public string Status { get; set; }
-        //public string repairCost { get; set; }
-
+        
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:c}")]
+        public string RepairCost { get; set; }
         public List<RepairCar> Repairs { get; set; }
 
     }

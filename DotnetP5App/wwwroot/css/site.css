@@ -118,9 +118,34 @@ a{
 .breadcrumb {
     margin-top: 115px;
     margin-bottom: 20px;
+    margin-left: -18px;
     background-color: #FFF;
 }
 
 .breadcrumb li a {
     text-decoration: none;
+}
+
+.sidebar {
+    padding-top: 36px;
+    padding-bottom: 30px;
+}
+
+.sidebar {
+    padding-top: 36px;
+    padding-bottom: 30px;
+}
+
+.sidebar .widget {
+    margin-bottom: 20px;
+}
+
+.sidebar h1, .sidebar .h1, .sidebar h2, .sidebar .h2, .sidebar h3, .sidebar .h3 {
+    margin-top: 20px;
+}
+
+address {
+    margin-bottom: 20px;
+    font-style: normal;
+    line-height: 1.428571429;
 }

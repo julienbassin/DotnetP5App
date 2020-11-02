@@ -36,13 +36,6 @@ namespace DotnetP5App.Services
                    select rc;
         }
 
-        public void Update(RepairCar repairCar)
-        {
-            var entry = _db.Entry(repairCar);
-            entry.State = EntityState.Modified;
-            _db.SaveChanges();
-        }
-
         public RepairCar FindRepairCarById(int Id)
         {
             return _db.RepairCars.FirstOrDefault(c => c.Id == Id);

@@ -6,11 +6,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Diagnostics;
 
 namespace DotnetP5App.ViewModels
 {
     public class CarViewModel
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "Please enter Model name")]
         public string Model { get; set; }
 
@@ -24,16 +27,21 @@ namespace DotnetP5App.ViewModels
         public string Year { get; set; }
 
         [Required(ErrorMessage = "Please enter Vehicule ID")]
-        public int Vin { get; set; }
+        [RegularExpression("[A-HJ-NPR-Z0-9]{13}[0-9]{4}", ErrorMessage = "Invalid Vehicle Identification Number Format.")]
+        public string Vin { get; set; }
 
         [Required(ErrorMessage = "Please enter Purchase price")]
-        public int PurchasePrice { get; set; }
+        public int PurchasePrice { get; set; } 
 
         [Required(ErrorMessage = "Please enter Purchase date")]
-        public DateTime PurchaseDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
+        public DateTime PurchaseDate { get; set; } = DateTime.Now;
 
         [Required(ErrorMessage = "Please enter Lot date")]
-        public DateTime LotDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
+        public DateTime LotDate { get; set; } = DateTime.Now;
 
         [Required(ErrorMessage = "Please enter Description of the car")]
         public string Description { get; set; }
@@ -46,10 +54,13 @@ namespace DotnetP5App.ViewModels
         public int SellingPrice { get; set; }
 
         [Display(Name = "Sale Date")]
-        public DateTime SaleDate { get; set; }
-        public string repairCost { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
+        public DateTime SaleDate { get; set; } = DateTime.Now;
+        public string RepairCost { get; set; }
         public string Status { get; set; }
         public List<SelectListItem> ListRepairCar { get; set; } = new List<SelectListItem>();
         public List<string> RepairCarList { get; set; }
+
     }
 }

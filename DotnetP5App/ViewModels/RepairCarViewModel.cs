@@ -12,6 +12,8 @@ namespace DotnetP5App.ModelsViewModels
     {
         public int Id { get; set; }
         public int CarId { get; set; }
+
+        [Required]
         public string Description { get; set; }
         [Required]
         public decimal Amount { get; set; }

@@ -1,24 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using DotnetP5App.Models;
 using DotnetP5App.Services;
 using DotnetP5App.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace DotnetP5App.Controllers
 {
-    
+
     public class CarsController : Controller
     {
-        public readonly ICarRepository _db;
+        public readonly ICarRepository _carRepository;
         private readonly IWebHostEnvironment _webHostEnvironment;
         public readonly IRepairCarRepository _repairCarRepository;
 
@@ -26,20 +25,20 @@ namespace DotnetP5App.Controllers
                               IWebHostEnvironment webHostEnvironment,
                               IRepairCarRepository repairCarRepository)
         {
-            _db = db;
+            _carRepository = db;
             _webHostEnvironment = webHostEnvironment;
             _repairCarRepository = repairCarRepository;
         }
         [Authorize]
         public IActionResult Index()
         {
-            var model = _db.GetAll();
+            var model = _carRepository.GetAll();
             return View(model);
         }
 
         public IActionResult Details(int Id)
         {
-            var model = _db.FindCarById(Id);
+            var model = _carRepository.GetCarById(Id);
             if (model == null)
             {
                 return View("NotFound");
@@ -88,9 +87,10 @@ namespace DotnetP5App.Controllers
                     ProfilePicture = uniqueFileName,
                     SaleDate = viewModel.SaleDate,
                     SellingPrice = viewModel.SellingPrice,
+                    RepairCost = viewModel.RepairCost,
                     Status = viewModel.Status
                  };
-                _db.AddCar(currentCar);
+                _carRepository.AddCar(currentCar);
                 
             }
             return RedirectToAction("Index");
@@ -113,36 +113,88 @@ namespace DotnetP5App.Controllers
             return uniqueFileName;
         }
 
-        // try to add httpget and httppost for edit 
         
+        [HttpGet]
+        public IActionResult Edit(int Id)
+        {
+            var currentCar = _carRepository.GetCarById(Id);
+            var repairCars = _repairCarRepository.GetAll();
+            var viewModel = new CarViewModel();
+            foreach (var repairCar in repairCars)
+            {
+                viewModel.ListRepairCar.Add(
+                    new SelectListItem
+                    {
+                        Text = repairCar.Description,
+                        Value = repairCar.RepairCost.ToString()
+                    });
+            }
+            viewModel.Id = currentCar.Id;
+            viewModel.Make = currentCar.Make;
+            viewModel.Model = currentCar.Model;
+            viewModel.Description = currentCar.Description;
+            viewModel.Trim = currentCar.Trim;
+            viewModel.Year = currentCar.Year;
+            viewModel.PurchaseDate = currentCar.PurchaseDate;
+            viewModel.PurchasePrice = currentCar.PurchasePrice;
+            viewModel.Vin = currentCar.Vin;
+            viewModel.LotDate = currentCar.LotDate;
+            viewModel.SaleDate = currentCar.SaleDate;
+            viewModel.SellingPrice = currentCar.SellingPrice;
+            viewModel.RepairCost = currentCar.RepairCost;
+            viewModel.Status = currentCar.Status;
+            return View(viewModel);
+        }
+        
+        [HttpPost]
         public IActionResult Edit(CarViewModel carViewModel)
         {
-            string uniqueFileName = UploadedFile(carViewModel);
+            string uniqueFileName = null;
+            if (carViewModel.ProfileImage != null)
+            {
+                uniqueFileName = UploadedFile(carViewModel);
+            }
 
             if (ModelState.IsValid)
             {
-                Car currentCar = new Car
-                {
-                    Model = carViewModel.Model,
-                    Description = carViewModel.Description,
-                    Make = carViewModel.Make,
-                    Trim = carViewModel.Trim,
-                    Year = carViewModel.Year,
-                    PurchaseDate = carViewModel.PurchaseDate,
-                    PurchasePrice = carViewModel.PurchasePrice,
-                    Vin = carViewModel.Vin,
-                    LotDate = carViewModel.LotDate,
-                    ProfilePicture = uniqueFileName
-                };
-                _db.Update(currentCar);
+                Car updatedCar = new Car();
+                updatedCar.Id = carViewModel.Id;
+                updatedCar.Model = carViewModel.Model;
+                updatedCar.Description = carViewModel.Description;
+                updatedCar.Make = carViewModel.Make;
+                updatedCar.Trim = carViewModel.Trim;
+                updatedCar.Year = carViewModel.Year;
+                updatedCar.PurchaseDate = carViewModel.PurchaseDate;
+                updatedCar.PurchasePrice = carViewModel.PurchasePrice;
+                updatedCar.Vin = carViewModel.Vin;
+                updatedCar.LotDate = carViewModel.LotDate;
+                updatedCar.SaleDate = carViewModel.SaleDate;
+                updatedCar.SellingPrice = carViewModel.SellingPrice;
+                updatedCar.RepairCost = carViewModel.RepairCost;
+                updatedCar.Status = carViewModel.Status;
+                updatedCar.ProfilePicture = uniqueFileName;
+                _carRepository.Update(updatedCar);
+                return RedirectToAction("Index");
             }
-            return View();
-        }     
+            else
+            {
+                var modelErrors = new List<string>();
+                foreach (var modelState in ModelState.Values)
+                {
+                    foreach (var modelError in modelState.Errors)
+                    {
+                        modelErrors.Add(modelError.ErrorMessage);
+                    }
+                }
+                return RedirectToAction("Index", modelErrors);
+            }
+        }
+
 
         [HttpGet]
         public IActionResult DeleteConfirmation(int id)
         {
-            var model = _db.FindCarById(id);
+            var model = _carRepository.GetCarById(id);
             if (model == null)
             {
                 return View("Not Found");
@@ -153,7 +205,7 @@ namespace DotnetP5App.Controllers
         [HttpPost]
         public IActionResult Delete(int Id)
         {
-            _db.DeleteCarById(Id);
+            _carRepository.DeleteCarById(Id);
             return RedirectToAction("Index");
         }
     }

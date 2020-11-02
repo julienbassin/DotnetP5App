@@ -6,65 +6,62 @@
 
 <h2>Details for @Html.DisplayFor(model => model.Model)</h2>
 
-<div>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Trim)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Trim)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Make)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Make)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Year)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Year)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Vin)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Vin)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PurchasePrice)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PurchasePrice)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PurchaseDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PurchaseDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LotDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LotDate)
-        </dd>
-    </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    <a asp-action="Index">Back to List</a>
+
+
+<div class="container" style="margin:150px 0">
+    <div class="row">
+        <div class="col-md-3">
+            <img class="img-thumbnail" src="~/images/@Model.ProfilePicture" width="400" height="400" alt="" />
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-title">
+                    <h4 class="text-center">Register a new account</h4>
+                    <p class="text-center">
+                        Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                    </p>
+                    <hr />
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        @Html.DisplayNameFor(model => model.Model)
+                        @Html.DisplayFor(model => model.Model)
+                    </div>
+                    <div class="form-group">
+                        @Html.DisplayNameFor(model => model.Trim)
+                        @Html.DisplayFor(model => model.Trim)
+                    </div>
+                    <div class="form-group">
+                        @Html.DisplayNameFor(model => model.Make)
+                        @Html.DisplayFor(model => model.Make)
+                    </div>
+                    <div class="form-group">
+                        @Html.DisplayNameFor(model => model.Year)
+                        @Html.DisplayFor(model => model.Year)
+                    </div>
+                    <div class="form-group">
+                        @Html.DisplayNameFor(model => model.Vin)
+                        @Html.DisplayFor(model => model.Vin)
+                    </div>
+                    <div class="form-group">
+                        @Html.DisplayNameFor(model => model.PurchasePrice)
+                        @Html.DisplayFor(model => model.PurchasePrice)
+                    </div>
+                    <div class="form-group">
+                        @Html.DisplayNameFor(model => model.PurchaseDate)
+                        @Html.DisplayFor(model => model.PurchaseDate)
+                    </div>
+                    <div class="form-group">
+                        @Html.DisplayNameFor(model => model.LotDate)
+                        @Html.DisplayFor(model => model.LotDate)
+                    </div>
+
+                    <div class="form-group">
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+                        <a asp-action="Index" class="btn btn-primary">Back To List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

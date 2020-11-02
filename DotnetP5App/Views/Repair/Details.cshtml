@@ -4,27 +4,32 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>RepairCar</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.RepairCost)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RepairCost)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>        
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="container" style="margin:150px auto">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card w-50 m-auto">
+                <div class="card-body">
+                    <h4 class="card-title">Are you sure to delete this car model ?</h4>
+                    <p class="card-text">
+                        <dl class="row">
+                            <dt class="col-sm-3">
+                                @Html.DisplayNameFor(model => model.RepairCost)
+                            </dt>
+                            <dd class="col-sm-9">
+                                @Html.DisplayFor(model => model.RepairCost)
+                            </dd>
+                            <dt class="col-sm-3">
+                                @Html.DisplayNameFor(model => model.Description)
+                            </dt>
+                            <dd class="col-sm-9">
+                                @Html.DisplayFor(model => model.Description)
+                            </dd>
+                        </dl>
+                    </p>
+                    <a class="btn btn-primary" asp-controller="Repair" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                    <a class="btn btn-warning" asp-controller="Repair" asp-action="Index">Back to list</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

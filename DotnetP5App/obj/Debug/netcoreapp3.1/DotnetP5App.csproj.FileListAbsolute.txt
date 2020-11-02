@@ -154,7 +154,6 @@ C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\Dotnet
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.csprojAssemblyReference.cache
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.AssemblyInfoInputs.cache
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.AssemblyInfo.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.csproj.CoreCompileInputs.cache
@@ -209,15 +208,13 @@ C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\Dotnet
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Cars\Details.cshtml.g.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Cars\Edit.cshtml.g.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Cars\Index.cshtml.g.cs
-C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Cars\NotFound.cshtml.g.cs
-C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Home\About.cshtml.g.cs
-C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Home\Contact.cshtml.g.cs
+C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Inventory\Index.cshtml.g.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Repair\Create.cshtml.g.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Repair\Delete.cshtml.g.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Repair\Details.cshtml.g.cs
+C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Repair\Edit.cshtml.g.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Repair\Index.cshtml.g.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
@@ -235,4 +232,4 @@ C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\Dotnet
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.dll
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.pdb
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.genruntimeconfig.cache
-C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\Razor\Views\Repair\Edit.cshtml.g.cs
+C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.csprojAssemblyReference.cache
