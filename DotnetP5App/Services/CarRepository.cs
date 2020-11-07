@@ -62,6 +62,7 @@ namespace DotnetP5App.Services
                 model.SaleDate = car.SaleDate;
                 model.ProfilePicture = car.ProfilePicture;
                 model.Status = car.Status;
+                _db.Update(model);
                 _db.SaveChanges();
             }           
         }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DotnetP5App.ViewModels;
+﻿using DotnetP5App.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotnetP5App.Controllers
@@ -18,7 +14,7 @@ namespace DotnetP5App.Controllers
         [HttpPost]
         public IActionResult SaveMessage(SendEmailViewModel viewModel)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 return View("Index", viewModel);
             }

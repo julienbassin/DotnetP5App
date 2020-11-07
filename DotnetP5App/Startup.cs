@@ -48,8 +48,11 @@ namespace DotnetP5App
                 options.Password.RequiredLength = 9;
 
                 // Lockout settings.
-                options.Lockout.MaxFailedAccessAttempts = 3;
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+                //options.Lockout.AllowedForNewUsers = true;
+                //options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2);
+                //options.Lockout.MaxFailedAccessAttempts = 3;
+                //options.Lockout.MaxFailedAccessAttempts = 3;
+                //options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
             });
 
             //services.AddDbContext<ApplicationDbContext>(options =>
@@ -62,13 +65,10 @@ namespace DotnetP5App
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<SecureAppUser>()
-                .AddEntityFrameworkStores<DotnetP5AppContext>();
-
-            
+                .AddEntityFrameworkStores<DotnetP5AppContext>();            
 
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddRazorPages();
-
 
             //services.AddDbContext<CarDBContext>(options => options.UseInMemoryDatabase());
             ContainerConfig.RegisterContainer();

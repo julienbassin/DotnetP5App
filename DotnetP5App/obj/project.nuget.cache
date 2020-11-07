@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "ovSsG1uuwCzkYFu2yBPGeMwbNmNpkN49bD0p2yLaHFxrxPbWQMhbAJdfZcfaoBiZh5pymQwwTnFtbd9PrIjdBg==",
+  "dgSpecHash": "Hu0fnoTsU/zPwTcsyBLvu1/ejKBXWdCyxHKFgTv58RBo5pqwpMsXASoPrQl1tTIHSx76Zv8g5/8fsIQHzvJcXw==",
   "success": true,
   "projectFilePath": "C:\\Users\\JulienBassin\\Documents\\openclassrooms\\Openclassrooms\\DotnetP5App\\DotnetP5App\\DotnetP5App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\JulienBassin\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",
     "C:\\Users\\JulienBassin\\.nuget\\packages\\autofac.mvc5\\6.0.0\\autofac.mvc5.6.0.0.nupkg.sha512",
     "C:\\Users\\JulienBassin\\.nuget\\packages\\bower\\1.3.11\\bower.1.3.11.nupkg.sha512",
+    "C:\\Users\\JulienBassin\\.nuget\\packages\\jquery\\1.12.4\\jquery.1.12.4.nupkg.sha512",
+    "C:\\Users\\JulienBassin\\.nuget\\packages\\jquery.ui.combined\\1.12.1\\jquery.ui.combined.1.12.1.nupkg.sha512",
     "C:\\Users\\JulienBassin\\.nuget\\packages\\mailkit\\2.6.0\\mailkit.2.6.0.nupkg.sha512",
     "C:\\Users\\JulienBassin\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.7\\microsoft.aspnet.mvc.5.2.7.nupkg.sha512",
     "C:\\Users\\JulienBassin\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.7\\microsoft.aspnet.razor.3.2.7.nupkg.sha512",

@@ -14,10 +14,9 @@
         </div>
     </div>
     <div class="row">
-        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        <div asp-validation-summary="All" class="text-danger"></div>
         <div class="col-md-12">
             <form enctype="multipart/form-data" asp-action="Edit">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -78,7 +77,7 @@
                         <div class="form-group">
                             <div class="form-group">
                                 <label for="RepairCar">To Select multiple choice, hold on ctrl+click</label>
-                                @Html.DropDownList("RepairCarList", Model.ListRepairCar, new { @id = "MultipleSelect", @class = "form-control", multiple = "multiple"})
+                                @Html.DropDownList("RepairCarList", Model.ListRepairCar, new { @id = "MultipleSelect", @class = "form-control", multiple = "multiple" })
                             </div>
                         </div>
                     </div>
@@ -97,18 +96,18 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label asp-for="PurchaseDate" class="control-label"></label>
-                            <input asp-for="PurchaseDate" class="form-control" />
+                            @Html.EditorFor(model => model.PurchaseDate, new { htmlAttributes = new { @class = "form-control datepicker", min = "1990-01-01", max = "2021-01-01" } })
                             <span asp-validation-for="PurchaseDate" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-4 form-group">
                         <label asp-for="LotDate" class="control-label"></label>
-                        <input asp-for="LotDate" class="form-control" />
+                        @Html.EditorFor(model => model.LotDate.Date, new { htmlAttributes = new { @class = "form-control", min = "1990-01-01", max = "2021-01-01" } })
                         <span asp-validation-for="LotDate" class="text-danger"></span>
                     </div>
                     <div class="col-md-4 form-group">
                         <label asp-for="SaleDate" class="control-label"></label>
-                        <input asp-for="SaleDate" class="form-control" />
+                        @Html.EditorFor(model => model.SaleDate.Date, new { htmlAttributes = new { @class = "form-control", min = "1990-01-01", max = "2021-01-01" } })
                         <span asp-validation-for="SaleDate" class="text-danger"></span>
                     </div>
                 </div>
@@ -179,6 +178,10 @@
 
         $("#PurchasePrice").change(function () {
             calculateSum();
+        });
+
+        $(function () {
+            $(".datepicker").DatePicker();
         });
 
     </script>

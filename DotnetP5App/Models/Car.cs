@@ -43,6 +43,8 @@ namespace DotnetP5App.Models
         public DateTime LotDate { get; set; }
 
         public DateTime SaleDate { get; set; }
+
+        [Required(ErrorMessage = "Please upload an image")]
         public string ProfilePicture { get; set; }       
         public string Status { get; set; }
         

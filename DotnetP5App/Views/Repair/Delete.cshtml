@@ -1,15 +1,14 @@
 ﻿@model DotnetP5App.Models.RepairCar
 
 @{
-    ViewData["Title"] = "Delete";
-}
+    ViewData["Title"] = "Delete";}
 
 
 <div class="container" style="margin:150px auto">
     <div class="row">
         <div class="col-md-12">
             <div class="card w-50 m-auto">
-                <div class="card-body">
+                <div class="card-body text-center">
                     <h4 class="card-title">Are you sure to delete this car model ?</h4>
                     <p class="card-text">
                         <dl class="row">
@@ -30,8 +29,9 @@
                     <form asp-action="Delete">
                         <input type="hidden" asp-for="Id" />
                         <input type="submit" value="Confirm" class="btn btn-primary" />
-                        <button class="btn btn-warning">Back to list</button>
+                        <button asp-controller="Repair" asp-action="Index" class="btn btn-warning">Back to list</button>
                     </form>
+                    
                 </div>
             </div>
         </div>

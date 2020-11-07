@@ -78,10 +78,10 @@
                             @Html.DisplayFor(modelItem => item.PurchasePrice)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.PurchaseDate)
+                            @Convert.ToDateTime(item.PurchaseDate).ToString("dd/MM/yyyy")
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.LotDate)
+                            @Convert.ToDateTime(item.SaleDate).ToString("dd/MM/yyyy")
                         </td>
                         <td>
                             <a asp-controller="Cars" asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a> 

@@ -6,21 +6,33 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-<form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
-    <ul class="nav navbar-nav navbar-right ">
-        <li>
-            <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-        </li>
-        <li>
-            <button type="submit" class="btn nav-link text-light">Logout</button>
-        </li>
-    </ul>
-</form>
+    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
+        <ul class="nav navbar-nav navbar-right ">
+            <li>
+                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)</a>
+            </li>
+            <li>
+                <button type="submit" class="btn nav-link text-light" style="margin-top:-2px">Logout</button>
+            </li>
+        </ul>
+    </form>
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li><a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Register">Register</a></li>
-        <li><a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
-    </ul>
+    // check if user is present in db
+    var IsUserPresent = UserManager.Users.Count();
+    if (IsUserPresent > 0)
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li><a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+        </ul>
+    }
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li><a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+            <li><a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+        </ul>
+    }
+
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using DotnetP5App.Models;
 using DotnetP5App.Services;
 using DotnetP5App.ViewModels;
@@ -9,8 +8,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace DotnetP5App.Controllers
 {
@@ -66,7 +63,6 @@ namespace DotnetP5App.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public IActionResult Create(CarViewModel viewModel)
         {
             if (ModelState.IsValid)
@@ -91,9 +87,21 @@ namespace DotnetP5App.Controllers
                     Status = viewModel.Status
                  };
                 _carRepository.AddCar(currentCar);
-                
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            var repairCars = _repairCarRepository.GetAll();
+            var vmRepairCars = new CarViewModel();
+            foreach (var repairCar in repairCars)
+            {
+                vmRepairCars.ListRepairCar.Add(
+                    new SelectListItem
+                    {
+                        Text = repairCar.Description,
+                        Value = repairCar.RepairCost.ToString()
+                    });
+            }
+
+            return View(vmRepairCars);
         }
 
         private string UploadedFile(CarViewModel model)
@@ -115,6 +123,7 @@ namespace DotnetP5App.Controllers
 
         
         [HttpGet]
+        [Authorize]
         public IActionResult Edit(int Id)
         {
             var currentCar = _carRepository.GetCarById(Id);
@@ -176,22 +185,23 @@ namespace DotnetP5App.Controllers
                 _carRepository.Update(updatedCar);
                 return RedirectToAction("Index");
             }
-            else
+            var repairCars = _repairCarRepository.GetAll();
+            var vmRepairCars = new CarViewModel();
+            foreach (var repairCar in repairCars)
             {
-                var modelErrors = new List<string>();
-                foreach (var modelState in ModelState.Values)
-                {
-                    foreach (var modelError in modelState.Errors)
+                vmRepairCars.ListRepairCar.Add(
+                    new SelectListItem
                     {
-                        modelErrors.Add(modelError.ErrorMessage);
-                    }
-                }
-                return RedirectToAction("Index", modelErrors);
+                        Text = repairCar.Description,
+                        Value = repairCar.RepairCost.ToString()
+                    });
             }
+            return View(vmRepairCars);
         }
 
 
         [HttpGet]
+        [Authorize]
         public IActionResult DeleteConfirmation(int id)
         {
             var model = _carRepository.GetCarById(id);

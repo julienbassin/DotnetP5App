@@ -156,9 +156,6 @@ C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\Dotnet
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.AssemblyInfoInputs.cache
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.AssemblyInfo.cs
-C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.csproj.CoreCompileInputs.cache
-C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.RazorAssemblyInfo.cache
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.RazorAssemblyInfo.cs
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.TagHelpers.input.cache
@@ -233,3 +230,6 @@ C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\Dotnet
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.pdb
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.genruntimeconfig.cache
 C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.csprojAssemblyReference.cache
+C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.csproj.CoreCompileInputs.cache
+C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\JulienBassin\Documents\openclassrooms\Openclassrooms\DotnetP5App\DotnetP5App\obj\Debug\netcoreapp3.1\DotnetP5App.MvcApplicationPartsAssemblyInfo.cache

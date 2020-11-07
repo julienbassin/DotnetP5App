@@ -16,8 +16,9 @@
     </div>
     <div class="row">
         <div class="col-md-12">
+            <div asp-validation-summary="All" class="text-danger"></div>
             <form enctype="multipart/form-data" asp-action="Create">
-                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -97,18 +98,18 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label asp-for="PurchaseDate" class="control-label"></label>
-                            @Html.EditorFor(model => model.PurchaseDate, new { htmlAttributes = new { @class = "form-control", min = "1990-01-01", max = "2021-01-01" } })
+                            @Html.EditorFor(model => model.PurchaseDate, new { htmlAttributes = new { @class = "form-control", min = "1990/01/01", max = "2021/01/01" } })
                             <span asp-validation-for="PurchaseDate" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-4 form-group">
                         <label asp-for="LotDate" class="control-label"></label>
-                        @Html.EditorFor(model => model.PurchaseDate, new { htmlAttributes = new { @class = "form-control", min = "1990-01-01", max = "2021-01-01" } })
+                        @Html.EditorFor(model => model.LotDate, new { htmlAttributes = new { @class = "form-control", min = Model.PurchaseDate, max = "2021/01/01" } })
                         <span asp-validation-for="LotDate" class="text-danger"></span>
                     </div>
                     <div class="col-md-4 form-group">
                         <label asp-for="SaleDate" class="control-label"></label>
-                        @Html.EditorFor(model => model.PurchaseDate, new { htmlAttributes = new { @class = "form-control", min = "1990-01-01", max = "2021-01-01" } })
+                        @Html.EditorFor(model => model.SaleDate, new { htmlAttributes = new { @class = "form-control", min = Model.LotDate, max = "2021/01/01" } })
                         <span asp-validation-for="SaleDate" class="text-danger"></span>
                     </div>
                 </div>

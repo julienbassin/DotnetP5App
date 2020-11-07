@@ -24,6 +24,8 @@
     <PkgNoGit Condition=" '$(PkgNoGit)' == '' ">C:\Users\JulienBassin\.nuget\packages\nogit\0.0.8</PkgNoGit>
     <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\JulienBassin\.nuget\packages\microsoft.codeanalysis.analyzers\2.9.4</PkgMicrosoft_CodeAnalysis_Analyzers>
     <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">C:\Users\JulienBassin\.nuget\packages\microsoft.entityframeworkcore.tools\3.1.9</PkgMicrosoft_EntityFrameworkCore_Tools>
+    <PkgjQuery Condition=" '$(PkgjQuery)' == '' ">C:\Users\JulienBassin\.nuget\packages\jquery\1.12.4</PkgjQuery>
+    <PkgjQuery_UI_Combined Condition=" '$(PkgjQuery_UI_Combined)' == '' ">C:\Users\JulienBassin\.nuget\packages\jquery.ui.combined\1.12.1</PkgjQuery_UI_Combined>
     <PkgBower Condition=" '$(PkgBower)' == '' ">C:\Users\JulienBassin\.nuget\packages\bower\1.3.11</PkgBower>
   </PropertyGroup>
 </Project>

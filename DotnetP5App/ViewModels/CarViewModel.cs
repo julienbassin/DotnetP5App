@@ -34,14 +34,14 @@ namespace DotnetP5App.ViewModels
         public int PurchasePrice { get; set; } 
 
         [Required(ErrorMessage = "Please enter Purchase date")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:mm/dd/yyyy}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
-        public DateTime PurchaseDate { get; set; } = DateTime.Now;
+        public DateTime PurchaseDate { get; set; }
 
         [Required(ErrorMessage = "Please enter Lot date")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:mm/dd/yyyy}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
-        public DateTime LotDate { get; set; } = DateTime.Now;
+        public DateTime LotDate { get; set; } = DateTime.Now.Date;
 
         [Required(ErrorMessage = "Please enter Description of the car")]
         public string Description { get; set; }
@@ -54,9 +54,9 @@ namespace DotnetP5App.ViewModels
         public int SellingPrice { get; set; }
 
         [Display(Name = "Sale Date")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:mm/dd/yyyy}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
-        public DateTime SaleDate { get; set; } = DateTime.Now;
+        public DateTime SaleDate { get; set; } = DateTime.Now.Date;
         public string RepairCost { get; set; }
         public string Status { get; set; }
         public List<SelectListItem> ListRepairCar { get; set; } = new List<SelectListItem>();

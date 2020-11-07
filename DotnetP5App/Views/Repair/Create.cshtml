@@ -4,15 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="container" style="margin:120px 0">
-    <div class="row">
-        <div class="col-md-12">
-            <ol class="breadcrumb">
-                <li><a asp-controller="Cars" asp-action="Index">Back to list &nbsp; </a></li>
-                <li class="active" style="color:#999"> / Create</li>
-            </ol>
-        </div>
-    </div>
+<div class="container" style="margin:100px 0">
     <div class="row">
         <div class="col-md-12">
             <form asp-action="Create">
@@ -31,6 +23,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <input type="submit" value="Create" class="btn btn-primary" />
+                            <button asp-controller="Repair" asp-action="Index" class="btn btn-warning">Back to list</button>
                         </div>
                     </div>
                 </div>

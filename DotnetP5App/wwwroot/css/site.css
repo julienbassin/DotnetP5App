@@ -149,3 +149,17 @@ address {
     font-style: normal;
     line-height: 1.428571429;
 }
+
+#bghead {
+    background: url("../images/bg_head.jpg") no-repeat;
+    background-size: cover;
+    min-height: 520px;
+    text-align: center;
+    padding-top: 240px;
+    color: white;
+    font-weight: 300;
+}
+
+#phead{
+    color:white;
+}

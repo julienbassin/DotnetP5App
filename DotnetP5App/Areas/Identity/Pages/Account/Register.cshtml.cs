@@ -81,7 +81,8 @@ namespace DotnetP5App.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new SecureAppUser { FirstName = Input.FirstName, LastName = Input.LastName, UserName = Input.FirstName, Email = Input.Email };
+                var user = new SecureAppUser { FirstName = Input.FirstName, LastName = Input.LastName, UserName = Input.Email, Email = Input.Email };
+                
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

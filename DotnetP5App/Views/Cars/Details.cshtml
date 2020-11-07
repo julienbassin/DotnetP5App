@@ -1,12 +1,13 @@
-﻿@model DotnetP5App.Models.Car
+﻿@using Microsoft.AspNetCore.Identity
+@using DotnetP5App.Areas.Identity.Data
+
+@model DotnetP5App.Models.Car
+@inject UserManager<SecureAppUser> UserManager
+@inject SignInManager<SecureAppUser> SignInManager
 
 @{
     ViewData["Title"] = "View";
 }
-
-<h2>Details for @Html.DisplayFor(model => model.Model)</h2>
-
-
 
 <div class="container" style="margin:150px 0">
     <div class="row">
@@ -16,50 +17,81 @@
         <div class="col-md-9">
             <div class="card">
                 <div class="card-title">
-                    <h4 class="text-center">Register a new account</h4>
+                    <h4 class="text-center">@Model.Make @Model.Model @Model.Trim</h4>
                     <p class="text-center">
-                        Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+                        @Model.Description
                     </p>
                     <hr />
                 </div>
-                <div class="card-body">
-                    <div class="form-group">
-                        @Html.DisplayNameFor(model => model.Model)
-                        @Html.DisplayFor(model => model.Model)
-                    </div>
-                    <div class="form-group">
-                        @Html.DisplayNameFor(model => model.Trim)
-                        @Html.DisplayFor(model => model.Trim)
-                    </div>
-                    <div class="form-group">
-                        @Html.DisplayNameFor(model => model.Make)
-                        @Html.DisplayFor(model => model.Make)
-                    </div>
-                    <div class="form-group">
-                        @Html.DisplayNameFor(model => model.Year)
-                        @Html.DisplayFor(model => model.Year)
-                    </div>
-                    <div class="form-group">
-                        @Html.DisplayNameFor(model => model.Vin)
-                        @Html.DisplayFor(model => model.Vin)
-                    </div>
-                    <div class="form-group">
-                        @Html.DisplayNameFor(model => model.PurchasePrice)
-                        @Html.DisplayFor(model => model.PurchasePrice)
-                    </div>
-                    <div class="form-group">
-                        @Html.DisplayNameFor(model => model.PurchaseDate)
-                        @Html.DisplayFor(model => model.PurchaseDate)
-                    </div>
-                    <div class="form-group">
-                        @Html.DisplayNameFor(model => model.LotDate)
-                        @Html.DisplayFor(model => model.LotDate)
-                    </div>
+                <div class="card-body text-center">
+                    <dl class="row">
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Model)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Model)
+                        </dd>
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Trim)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Trim)
+                        </dd>
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Make)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Make)
+                        </dd>
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Year)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Year)
+                        </dd>
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.Vin)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.Vin)
+                        </dd>
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.PurchasePrice)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.PurchasePrice)
+                        </dd>
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.PurchaseDate)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Convert.ToDateTime(Model.PurchaseDate).ToString("dd/MM/yyyy")
+                        </dd>
+                        <dt class="col-sm-3">
+                            @Html.DisplayNameFor(model => model.LotDate)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Convert.ToDateTime(Model.LotDate).ToString("dd/MM/yyyy")
+                        </dd>
+                        <dt class="col-sm-3">
+                            @Html.DisplayFor(model => model.Status)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayNameFor(model => model.Status)
+                        </dd>
+                    </dl>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <div class="form-group">
+                            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+                            <a class="btn btn-warning" asp-controller="Cars" asp-action="Index">Back to List</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <a class="btn btn-warning" asp-controller="Inventory" asp-action="Index">Back To Inventory</a>
+                    }
 
-                    <div class="form-group">
-                        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
-                        <a asp-action="Index" class="btn btn-primary">Back To List</a>
-                    </div>
                 </div>
             </div>
         </div>
